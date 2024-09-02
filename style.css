@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3.2rem;
+  color: darkblue;
+  margin-top: 4rem;
+}
+.list-of-books {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 4rem;
+}
+.book {
+  padding: 2rem;
+  background-color: aliceblue;
+  color: darkblue;
+  border-radius: 3rem;
+  font-size: 1.8rem;
+  span {
+    color: coral;
+    font-size: 1.2rem;
+  }
+}
