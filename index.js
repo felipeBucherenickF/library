@@ -69,6 +69,17 @@ myLibrary.forEach((book) => {
   displayBookIsReadLeyend.textContent = "Is Already read :";
   displayBook.appendChild(displayBookIsReadLeyend);
   displayBook.appendChild(displayBookIsRead);
+  const displayBookDelete = document.createElement("button");
+  displayBookDelete.textContent = "Delete";
+  displayBook.appendChild(displayBookDelete);
 
   listOfBooks.appendChild(displayBook);
 });
+
+const newBook = document.createElement("div");
+const newBookContent = document.createElement("p");
+newBookContent.textContent = "+";
+newBook.appendChild(newBookContent);
+newBook.classList.add("book");
+newBook.classList.add("new-book");
+listOfBooks.appendChild(newBook);
