@@ -36,54 +36,6 @@ function fillLibrary() {
 }
 fillLibrary();
 
-const listOfBooks = document.querySelector(".list-of-books");
-myLibrary.forEach((book) => {
-  const bookTitle = book.title;
-  const displayBookTitle = document.createElement("p");
-  displayBookTitle.textContent = bookTitle;
-  const bookAuthor = book.author;
-  const displayBookAuthor = document.createElement("p");
-  displayBookAuthor.textContent = bookAuthor;
-  const bookPages = book.numberOfPages;
-  const displayBookPages = document.createElement("p");
-  displayBookPages.textContent = bookPages;
-  const bookIsRead = book.isRead;
-  const displayBookIsRead = document.createElement("p");
-  displayBookIsRead.textContent = bookIsRead;
-
-  const displayBook = document.createElement("div");
-  displayBook.classList.add("book");
-  const displayBookTitleLeyend = document.createElement("span");
-  displayBookTitleLeyend.textContent = "Title :";
-  displayBook.appendChild(displayBookTitleLeyend);
-  displayBook.appendChild(displayBookTitle);
-  const displayBookAuthorLeyend = document.createElement("span");
-  displayBookAuthorLeyend.textContent = "Author :";
-  displayBook.appendChild(displayBookAuthorLeyend);
-  displayBook.appendChild(displayBookAuthor);
-  const displayBookPagesLeyend = document.createElement("span");
-  displayBookPagesLeyend.textContent = "Number of Pages :";
-  displayBook.appendChild(displayBookPagesLeyend);
-  displayBook.appendChild(displayBookPages);
-  const displayBookIsReadLeyend = document.createElement("span");
-  displayBookIsReadLeyend.textContent = "Is Already read :";
-  displayBook.appendChild(displayBookIsReadLeyend);
-  displayBook.appendChild(displayBookIsRead);
-  const displayBookDelete = document.createElement("button");
-  displayBookDelete.textContent = "Delete";
-  displayBook.appendChild(displayBookDelete);
-
-  listOfBooks.appendChild(displayBook);
-});
-
-const createNewBook = document.createElement("div");
-const createNewBookContent = document.createElement("p");
-createNewBookContent.textContent = "+";
-createNewBook.appendChild(createNewBookContent);
-createNewBook.classList.add("book");
-createNewBook.classList.add("new-book");
-listOfBooks.appendChild(createNewBook);
-
 const openAddNewBookModal = () => {
   const addNewBookModal = document.createElement("div");
   const addNewBookForm = document.createElement("form");
@@ -138,6 +90,61 @@ const openAddNewBookModal = () => {
   });
 };
 
-createNewBook.addEventListener("click", () => {
-  openAddNewBookModal();
-});
+const displayBooks = (myLibrary) => {
+  const listOfBooks = document.querySelector(".list-of-books");
+  myLibrary.forEach((book) => {
+    const bookTitle = book.title;
+    const displayBookTitle = document.createElement("p");
+    displayBookTitle.textContent = bookTitle;
+    const bookAuthor = book.author;
+    const displayBookAuthor = document.createElement("p");
+    displayBookAuthor.textContent = bookAuthor;
+    const bookPages = book.numberOfPages;
+    const displayBookPages = document.createElement("p");
+    displayBookPages.textContent = bookPages;
+    const bookIsRead = book.isRead;
+    const displayBookIsRead = document.createElement("p");
+    displayBookIsRead.textContent = bookIsRead;
+
+    const displayBook = document.createElement("div");
+    displayBook.classList.add("book");
+    const displayBookTitleLeyend = document.createElement("span");
+    displayBookTitleLeyend.textContent = "Title :";
+    displayBook.appendChild(displayBookTitleLeyend);
+    displayBook.appendChild(displayBookTitle);
+    const displayBookAuthorLeyend = document.createElement("span");
+    displayBookAuthorLeyend.textContent = "Author :";
+    displayBook.appendChild(displayBookAuthorLeyend);
+    displayBook.appendChild(displayBookAuthor);
+    const displayBookPagesLeyend = document.createElement("span");
+    displayBookPagesLeyend.textContent = "Number of Pages :";
+    displayBook.appendChild(displayBookPagesLeyend);
+    displayBook.appendChild(displayBookPages);
+    const displayBookIsReadLeyend = document.createElement("span");
+    displayBookIsReadLeyend.textContent = "Is Already read :";
+    displayBook.appendChild(displayBookIsReadLeyend);
+    displayBook.appendChild(displayBookIsRead);
+    const displayBookDelete = document.createElement("button");
+    displayBookDelete.textContent = "Delete";
+    displayBook.appendChild(displayBookDelete);
+
+    displayBookDelete.addEventListener("click", () => {
+      displayBook.classList.add("delete");
+    });
+
+    listOfBooks.appendChild(displayBook);
+  });
+  const createNewBook = document.createElement("div");
+  const createNewBookContent = document.createElement("p");
+  createNewBookContent.textContent = "+";
+  createNewBook.appendChild(createNewBookContent);
+  createNewBook.classList.add("book");
+  createNewBook.classList.add("new-book");
+  listOfBooks.appendChild(createNewBook);
+
+  createNewBook.addEventListener("click", () => {
+    openAddNewBookModal();
+  });
+};
+
+displayBooks(myLibrary);
