@@ -36,6 +36,8 @@ function fillLibrary() {
 }
 fillLibrary();
 
+const listOfBooks = document.querySelector(".list-of-books");
+
 const openAddNewBookModal = () => {
   const addNewBookModal = document.createElement("div");
   const addNewBookForm = document.createElement("form");
@@ -86,12 +88,11 @@ const openAddNewBookModal = () => {
     );
     addBookToLibrary(newBook);
     addNewBookModal.classList.add("close");
-    console.log(myLibrary);
+    displayBooks(myLibrary);
   });
 };
 
 const displayBooks = (myLibrary) => {
-  const listOfBooks = document.querySelector(".list-of-books");
   myLibrary.forEach((book) => {
     const bookTitle = book.title;
     const displayBookTitle = document.createElement("p");
